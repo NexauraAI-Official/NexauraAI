@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nexaura AI — Futuristic, dark, purple/blue gradient design system */
+
+@layer base {
+  :root {
+    /* Deep navy base — true dark with a blue undertone */
+    --background: 235 45% 6%;
+    --foreground: 230 40% 98%;
+
+    --card: 235 40% 9%;
+    --card-foreground: 230 40% 98%;
+
+    --popover: 235 45% 7%;
+    --popover-foreground: 230 40% 98%;
+
+    /* Bluish-purple primary (indigo / violet) */
+    --primary: 250 90% 66%;
+    --primary-foreground: 235 45% 6%;
+    --primary-glow: 255 100% 78%;
+
+    /* Cooler blue accent for the secondary glow */
+    --accent: 225 95% 68%;
+    --accent-foreground: 235 45% 6%;
+    --accent-glow: 220 100% 72%;
+
+    --secondary: 235 35% 13%;
+    --secondary-foreground: 230 40% 98%;
+
+    --muted: 235 30% 15%;
+    --muted-foreground: 230 20% 68%;
+
+    --success: 142 76% 55%;
+    --success-foreground: 235 45% 6%;
+
+    --whatsapp: 142 70% 49%;
+    --whatsapp-foreground: 0 0% 100%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 235 30% 17%;
+    --input: 235 30% 15%;
+    --ring: 250 90% 66%;
+
+    --radius: 1rem;
+
+    /* Gradients — indigo → blue */
+    --gradient-primary: linear-gradient(135deg, hsl(255 95% 68%), hsl(225 95% 62%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(250 90% 40% / 0.4), transparent 60%),
+                     radial-gradient(ellipse at bottom right, hsl(225 95% 45% / 0.28), transparent 55%),
+                     linear-gradient(180deg, hsl(235 45% 6%), hsl(235 50% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(235 40% 11% / 0.85), hsl(235 40% 8% / 0.85));
+    --gradient-glow: radial-gradient(circle at center, hsl(250 100% 75% / 0.4), transparent 70%);
+    --gradient-text: linear-gradient(135deg, hsl(230 40% 98%) 0%, hsl(250 100% 86%) 50%, hsl(220 100% 82%) 100%);
+
+    /* Shadows / glows */
+    --shadow-glow: 0 0 60px hsl(250 90% 66% / 0.4);
+    --shadow-glow-accent: 0 0 60px hsl(225 95% 68% / 0.3);
+    --shadow-elegant: 0 20px 60px -20px hsl(250 90% 40% / 0.55);
+    --shadow-card: 0 8px 32px hsl(235 60% 2% / 0.6);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 235 45% 6%;
+    --sidebar-foreground: 230 40% 98%;
+    --sidebar-primary: 250 90% 66%;
+    --sidebar-primary-foreground: 235 45% 6%;
+    --sidebar-accent: 235 35% 13%;
+    --sidebar-accent-foreground: 230 40% 98%;
+    --sidebar-border: 235 30% 17%;
+    --sidebar-ring: 250 90% 66%;
+  }
+
+  .dark {
+    --background: 235 45% 6%;
+    --foreground: 230 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(250 90% 40% / 0.28), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 60%, hsl(225 95% 45% / 0.22), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: hsl(240 25% 10% / 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(220 30% 98% / 0.08);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+
+  .card-elevated {
+    background: var(--gradient-card);
+    border: 1px solid hsl(220 30% 98% / 0.06);
+    box-shadow: var(--shadow-card);
+    transition: all 0.5s var(--transition-smooth);
+  }
+
+  .card-elevated:hover {
+    border-color: hsl(var(--primary) / 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -20px hsl(265 90% 35% / 0.4);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(220 30% 98% / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 30% 98% / 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  .animate-slide-up {
+    animation: slide-up 0.6s var(--transition-smooth) both;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.6s var(--transition-smooth) both;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px hsl(265 90% 65% / 0.3); }
+  50% { box-shadow: 0 0 60px hsl(265 90% 65% / 0.6); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+.typing-dot {
+  animation: typing-dot 1.4s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
