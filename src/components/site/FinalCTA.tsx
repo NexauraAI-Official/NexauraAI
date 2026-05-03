@@ -63,7 +63,7 @@ const FinalCTA = () => {
                 <a href="#problem" className="text-muted-foreground hover:text-foreground transition-colors">Problem</a>
                 <a href="#demo" className="text-muted-foreground hover:text-foreground transition-colors">Demo</a>
                 <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-                <a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
+                <a href="https://tally.so/r/jaG784" className="text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
                 <a href="https://tally.so/r/OD8Jqg" className="text-muted-foreground hover:text-foreground transition-colors">Terms</a>
               </div>
               <span className="text-xs text-muted-foreground mt-2">© {new Date().getFullYear()} Nexaura AI (Pvt) Ltd. All rights reserved.</span>
