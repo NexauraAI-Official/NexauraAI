@@ -10,7 +10,7 @@ const stats = [
 // TODO: Replace `embedUrl` with your YouTube/Vimeo embed link
 // e.g. "https://www.youtube.com/embed/VIDEO_ID" or "https://player.vimeo.com/video/VIDEO_ID"
 const videoTestimonials: { embedUrl: string; title: string }[] = [
-  { embedUrl: "https://youtube.com/shorts/XxwMO5htBdc?feature=share", title: "Testimonial video 1" },
+  { embedUrl: "https://www.youtube.com/embed/XxwMO5htBdc", title: "Testimonial video 1" },
   { embedUrl: "", title: "Testimonial video 2" },
   { embedUrl: "", title: "Testimonial video 3" },
 ];
