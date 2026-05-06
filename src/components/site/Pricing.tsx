@@ -4,7 +4,7 @@ const tiers = [
   {
     name: "Starter",
     price: "$49",
-    originalPrice: "$99",
+    originalPrice: "$199",
     period: "/month",
     desc: "For small tuition classes getting started.",
     features: [
@@ -21,7 +21,7 @@ const tiers = [
   {
     name: "Growth",
     price: "$89",
-    originalPrice: "$179",
+    originalPrice: "$359",
     period: "/month",
     desc: "Most popular — for growing institutes.",
     features: [
@@ -116,7 +116,7 @@ const Pricing = () => {
                         : "bg-success/15 text-success"
                     }`}
                   >
-                    50% OFF
+                    75% OFF
                   </span>
                 )}
               </div>
