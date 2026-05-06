@@ -83,7 +83,7 @@ export const FAQS: FAQEntry[] = [
     keywords: ["contact", "talk", "human", "demo", "book", "call", "speak"],
     question: "How do I talk to a human?",
     answer:
-      "Easiest way: WhatsApp us at **+94 71 401 9108** — https://wa.me/94714019108. We usually reply in under 5 minutes.",
+      "Easiest way: WhatsApp us at **+94 71 401 9108** — https://wa.me/94714019108.",
   },
   {
     id: "hello",
@@ -91,6 +91,27 @@ export const FAQS: FAQEntry[] = [
     question: "Greeting",
     answer:
       "Hey there! 👋 I'm Nexus, the Nexaura assistant. Ask me about pricing, the free trial, setup, or anything about our agency.",
+  },
+  {
+    id: "services",
+    keywords: ["service", "services", "offer", "build", "make", "telegram", "platforms", "platform"],
+    question: "What do you build?",
+    answer:
+      "We build **AI auto-reply systems for WhatsApp _and_ Telegram**, fully personalized for each institute. Your bot is trained on your classes, fees, schedules, and admissions info.",
+  },
+  {
+    id: "delivery",
+    keywords: ["deliver", "delivery", "deploy", "deployment", "timeline", "ready", "live", "days", "14", "how fast", "how long"],
+    question: "How fast do you deliver?",
+    answer:
+      "We **build and deploy your system within 14 days of payment** — fully trained, tested, and live on your WhatsApp or Telegram number.",
+  },
+  {
+    id: "benefits",
+    keywords: ["benefit", "benefits", "why", "advantage", "advantages", "value", "help", "good"],
+    question: "What are the benefits?",
+    answer:
+      "Here's what Nexaura gives your institute:\n\n- ⚡ **Instant replies** — every inquiry answered in seconds, 24/7\n- 👥 **Reduced staff workload** — your team focuses on real work, not repetitive questions\n- 📈 **No more lost enrollments** from slow replies\n- 🔥 **Handles peak hours effortlessly** — even hundreds of parents at once",
   },
 ];
 
@@ -120,7 +141,11 @@ export const findAnswer = (input: string): FAQEntry => {
 
 export const SUGGESTED_QUESTIONS = [
   "What is Nexaura AI?",
+  "What do you build?",
+  "What are the benefits?",
   "How much does it cost?",
   "Is there a free trial?",
-  "How long does setup take?",
+  "How fast do you deliver?",
+  "Is my student data safe?",
+  "How do I talk to a human?",
 ];
