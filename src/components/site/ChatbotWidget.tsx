@@ -92,22 +92,22 @@ const ChatbotWidget = () => {
               </div>
             ))}
 
-            {messages.length === 1 && (
-              <div className="pt-1 space-y-1.5">
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 px-1">
-                  <Sparkles className="h-3 w-3" /> Suggested
-                </div>
+            <div className="pt-1 space-y-1.5">
+              <div className="text-[11px] uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 px-1">
+                <Sparkles className="h-3 w-3" /> Suggested
+              </div>
+              <div className="grid grid-cols-2 gap-1.5">
                 {SUGGESTED_QUESTIONS.map((q) => (
                   <button
                     key={q}
                     onClick={() => send(q)}
-                    className="block w-full text-left text-xs rounded-lg glass px-3 py-2 hover:text-foreground text-muted-foreground transition-colors"
+                    className="text-xs rounded-lg glass px-3 py-2 text-center hover:text-foreground text-muted-foreground transition-colors min-h-[36px] flex items-center justify-center"
                   >
                     {q}
                   </button>
                 ))}
               </div>
-            )}
+            </div>
           </div>
 
           {/* Input */}
