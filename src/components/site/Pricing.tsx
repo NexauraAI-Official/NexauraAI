@@ -1,11 +1,32 @@
-import { Check, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { Check, Sparkles, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+type Currency = "USD" | "LKR";
+
+const RATE = 320.22; // 1 USD ≈ 300 LKR
+
+const formatPrice = (usd: number | null, currency: Currency) => {
+  if (usd === null) return "Custom";
+  if (currency === "USD") {
+    return `$${usd.toFixed(2).replace(/\.00$/, "")}`;
+  }
+  const lkr = Math.round(usd * RATE);
+  return `Rs ${lkr.toLocaleString()}`;
+};
 
 const tiers = [
   {
     name: "Starter",
-    price: "$49",
-    originalPrice: "$199",
-    period: "/month",
+    priceUsd: 0.62,
+    originalUsd: 3,
+    discount: "79% OFF",
+    perStudent: true,
     desc: "For small tuition classes getting started.",
     features: [
       "WhatsApp AI auto-replies",
@@ -20,9 +41,10 @@ const tiers = [
   },
   {
     name: "Growth",
-    price: "$89",
-    originalPrice: "$359",
-    period: "/month",
+    priceUsd: 1.15,
+    originalUsd: 5,
+    discount: "77% OFF",
+    perStudent: true,
     desc: "Most popular — for growing institutes.",
     features: [
       "Everything in Starter",
@@ -37,8 +59,10 @@ const tiers = [
   },
   {
     name: "Advanced",
-    price: "Custom",
-    period: "",
+    priceUsd: null as number | null,
+    originalUsd: null as number | null,
+    discount: "",
+    perStudent: false,
     desc: "For universities & multi-branch institutes.",
     features: [
       "Everything in Growth",
@@ -55,6 +79,8 @@ const tiers = [
 ];
 
 const Pricing = () => {
+  const [currency, setCurrency] = useState<Currency>("USD");
+
   return (
     <section id="pricing" className="py-24 sm:py-32 relative">
       <div className="container">
@@ -97,18 +123,39 @@ const Pricing = () => {
               </div>
 
               <div className="mt-6 flex items-baseline gap-2 flex-wrap">
-                {t.originalPrice && (
+                {t.originalUsd !== null && (
                   <span
                     className={`font-display text-2xl font-semibold line-through ${
                       t.highlight ? "opacity-60" : "text-muted-foreground/70"
                     }`}
                   >
-                    {t.originalPrice}
+                    {formatPrice(t.originalUsd, currency)}
                   </span>
                 )}
-                <span className="font-display text-4xl font-bold">{t.price}</span>
-                <span className={t.highlight ? "opacity-80" : "text-muted-foreground"}>{t.period}</span>
-                {t.originalPrice && (
+                <span className="font-display text-4xl font-bold">
+                  {formatPrice(t.priceUsd, currency)}
+                </span>
+                {t.perStudent && (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger
+                      className={`inline-flex items-center gap-0.5 rounded-md px-1 -mx-1 hover:bg-foreground/10 transition-colors outline-none ${
+                        t.highlight ? "opacity-80" : "text-muted-foreground"
+                      }`}
+                    >
+                      /student
+                      <ChevronDown className="h-3.5 w-3.5" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="min-w-[7rem]">
+                      <DropdownMenuItem onClick={() => setCurrency("USD")}>
+                        USD {currency === "USD" && "✓"}
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setCurrency("LKR")}>
+                        LKR {currency === "LKR" && "✓"}
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
+                {t.discount && (
                   <span
                     className={`ml-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${
                       t.highlight
@@ -116,7 +163,7 @@ const Pricing = () => {
                         : "bg-success/15 text-success"
                     }`}
                   >
-                    75% OFF
+                    {t.discount}
                   </span>
                 )}
               </div>
