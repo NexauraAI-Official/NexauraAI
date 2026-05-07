@@ -34,7 +34,7 @@ export const FAQS: FAQEntry[] = [
     keywords: ["price", "pricing", "cost", "fee", "plan", "how much", "$"],
     question: "How much does it cost?",
     answer:
-      "Our plans start at **$49/month** (Starter) and **$89/month** (Growth). Larger institutes get custom pricing. See the Pricing section above for full details.",
+      "Our pricing is **per student**: Starter is **$0.62/student** (was $3) and Growth is **$1.15/student** (was $5). Larger institutes get custom pricing. See the Pricing section above for full details.",
   },
   {
     id: "trial",
